@@ -4,10 +4,10 @@ import Detail from "./routes/Detail";
 
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
-        <Route path="/reactJS-repo" element={<Home />} />
-        <Route path="/movie/:id" element={<Detail />}/>
+        <Route basename={process.env.PUBLIC_URL} path="/" element={<Home />} />
+        <Route basename={process.env.PUBLIC_URL} path="/movie/:id" element={<Detail />}/>
       </Routes>
     </Router>
   )

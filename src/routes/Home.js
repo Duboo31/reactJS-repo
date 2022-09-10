@@ -12,6 +12,7 @@ const Home = () => {
   useEffect(() => {
     getMovies();
   }, [])
+  console.log("홈 업데이트 완료")
   return (
     <div>
       {loading ? <h4>Loading...</h4> : <div>{movies.map((movie) => (

@@ -6,16 +6,16 @@ const Detail = () => {
   const [movie, setMovie] = useState([]);
   const {id} = useParams();
   useEffect(() => {
+    const getMovie = async () => {
+      const json = await (
+        await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+        ).json();
+        setMovie(json.data.movie);
+        setLoading(false);
+    };
     getMovie();
-  }, [])
-  const getMovie = async () => {
-    const json = await (
-      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
-      ).json();
-      setMovie(json.data.movie);
-      setLoading(false);
-  };
-  console.log(movie);
+  }, [id])
+  console.log("디테일 업데이트 완료")
   return (
     <div>
       {loading ? <h4>Loading...</h4> :
