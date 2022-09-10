@@ -1,16 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./routes/Home";
-import Detail from "./routes/Detail";
+import { useEffect } from "react";
+import { useState } from "react";
+
+const Hello = () => {
+  useEffect(() => {
+    console.log("created");
+    return () => {console.log("destroy")};
+  },[])
+  return (
+    <h1>Hello!</h1>
+  )
+}
 
 const App = () => {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing(cur => !cur);
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/ >} />
-        <Route path="/movie/:id" element={<Detail/ >} />
-      </Routes>
-    </Router>
-  );
-};
+    <div>
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      {showing ? <Hello /> : null}
+    </div>    
+    )
+}
 
 export default App;
