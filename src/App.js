@@ -6,8 +6,8 @@ const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path={`${process.env.PUBLIC_URL}/reactJS-repo`} element={<Home />} />
-        <Route path={`${process.env.PUBLIC_URL}/movie/:id`} element={<Detail />}/>
+        <Route path="/reactJS-repo" element={<Home />} />
+        <Route path="/movie/:id" element={<Detail />}/>
       </Routes>
     </Router>
   )
